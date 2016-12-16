@@ -1,0 +1,16 @@
+{% if location %}
+    <h1> {{ location.name }}</h1> 
+    
+<p> {{location.address}}</p>
+<p>in {{location.country}}</p>
+
+<div>They offer the following:
+    <table>
+        <thead>they offer the following</thead>
+        <tbody>
+            <td>{{ location.services}}</td>
+        </tbody>
+    </table>
+</div>
+<p>Located at: {{location.lat}}, {{location.long}}</p>
+{% endif %}
