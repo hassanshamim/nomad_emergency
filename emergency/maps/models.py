@@ -13,6 +13,8 @@ class Location(models.Model):
                               null=True, max_digits=9, decimal_places=6)
     long = models.DecimalField('Longitude',
                                blank=True, null=True, max_digits=9, decimal_places=6)
+    created_at = models.DateTimeField('created_at', auto_now_add=True)
+    updated_at = models.DateTimeField('updated_at', auto_now=True)
 
     def __str__(self):
         return "'{}' in {}".format(self.name, self.country)
