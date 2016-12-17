@@ -91,3 +91,6 @@ ENV/
 # Visual Studio Code settings
 # don't judge
 .vscode/
+
+# local dev database
+db.sqlite3
