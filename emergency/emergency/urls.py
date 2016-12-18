@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^map/', map_views.index, name='map'),
     url(r'^location/(?P<location_id>[0-9]+)', map_views.show_location, name='location'),
+    url(r'^location/new', map_views.new_location, name='new')
 ]

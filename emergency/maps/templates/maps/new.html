@@ -1,0 +1,13 @@
+<h1>Create a new Location</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'new' %}" method="post">
+{% csrf_token %}
+<label for="name">Location Name</label>
+<input type="text" id='name' name='name'>
+<label for="address">Address</label>
+<input type="text" id='address' name='address'>
+<label for="country">Country</label>
+<input type="text"  maxlength="3" id='country' name='country'>
+<input type="submit" value="Submit" />
+</form>
