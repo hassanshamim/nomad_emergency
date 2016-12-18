@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Location(models.Model):
+class Facility(models.Model):
     """
     Temporary Placeholder for our hospitals etc model.
     """
