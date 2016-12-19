@@ -1,16 +1,24 @@
-{% if facility %}
-    <h1> {{ facility.name }}</h1> 
-    
-<p> {{facility.address}}</p>
-<p>in {{facility.country}}</p>
+{% extends "maps/base.html" %} {% block content %}
 
-<div>They offer the following:
-    <table>
-        <thead>they offer the following</thead>
-        <tbody>
-            <td>{{ facility.services}}</td>
-        </tbody>
-    </table>
+<div class='container=fluid'>
+    <div class='col-md-8 col-md-offset-2'>
+        <div class="row">
+
+            <h1 class='text-center'> {{ facility.name }}</h1>
+
+            <address> {{facility.address}}</address>
+            <p>in {{facility.country}}</p>
+
+            <div>They offer the following:
+                <table>
+                    <thead>they offer the following</thead>
+                    <tbody>
+                        <td>{{ facility.services}}</td>
+                    </tbody>
+                </table>
+            </div>
+            <p>Located at: {{facility.lat}}, {{facility.long}}</p>
+        </div>
+    </div>
 </div>
-<p>Located at: {{facility.lat}}, {{facility.long}}</p>
-{% endif %}
+{% endblock content %}
