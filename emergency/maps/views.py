@@ -17,7 +17,7 @@ def show_facility(request, facility_id):
     return render(request, 'maps/show_facility.html', {'facility': loc})
 
 def new_facility(request):
-    """new facility page and logic"""
+    """new facility page and logic"""   
     if request.POST:
         loc = Facility()
         loc.address = request.POST['address']
@@ -26,4 +26,4 @@ def new_facility(request):
         loc.save()
         return HttpResponseRedirect(reverse('facility', args=(loc.pk,)))
 
-    return render(request, 'maps/new.html')
+    return render(request, 'maps/new.html', context={'facility_form': FacilityForm()})
