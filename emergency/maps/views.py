@@ -3,11 +3,12 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
 from .models import Facility
+from .forms import FacilityForm
 
 
 def index(request):
     """Place holder.  probably where the main map page will go"""
-    return HttpResponse('Hello from maps index')
+    return render(request, 'maps/index.html')
 
 def show_facility(request, facility_id):
     """ Facility detail page"""

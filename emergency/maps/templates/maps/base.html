@@ -20,7 +20,9 @@
 <!-- Latest compiled and minified JavaScript -->
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'maps/style.css' %}" rel="stylesheet">
+    {% block styles %}
+      <link href="{% static 'maps/style.css' %}" rel="stylesheet">
+    {% endblock styles %}
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -68,20 +70,7 @@
 
     {% block content %}
 
-    <div class="cover theme-showcase" role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron center">
-        <h1>Map gonna go here</h1>
-      </div>
-
-
-      <div class="page-header">
-        <h1>Buttons</h1>
-      </div>
-
-
-    </div> <!-- /cover -->
     {% endblock %}
 
 
