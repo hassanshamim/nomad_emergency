@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
@@ -17,7 +17,7 @@ def show_facility(request, facility_id):
     return render(request, 'maps/show_facility.html', {'facility': loc})
 
 def new_facility(request):
-    """new facility page and logic"""   
+    """new facility page and logic"""
     if request.POST:
         loc = Facility()
         loc.address = request.POST['address']
