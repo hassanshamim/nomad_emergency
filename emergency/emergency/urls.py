@@ -21,6 +21,7 @@ from maps import views as map_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^map/', map_views.index, name='map'),
+    url(r'^$', map_views.index, name='home'),
     url(r'^facility/(?P<facility_id>[0-9]+)', map_views.show_facility, name='facility'),
     url(r'^facility/new', map_views.new_facility, name='new')
 ]
