@@ -20,9 +20,12 @@
 <!-- Latest compiled and minified JavaScript -->
 
     <!-- Custom styles for this template -->
+    <link href="{% static 'maps/main.css' %}" rel="stylesheet">
     {% block styles %}
-      <link href="{% static 'maps/style.css' %}" rel="stylesheet">
     {% endblock styles %}
+
+    {% block assets %}
+    {% endblock assets %}
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -88,5 +91,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    {%block postassets %}
+    {% endblock postassets %}
   </body>
 </html>

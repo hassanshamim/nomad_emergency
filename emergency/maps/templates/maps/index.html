@@ -1,7 +1,14 @@
 {% extends "maps/base.html" %}
+{% load static %}
 
-{% block styles %}
-{% endblock styles %}
+{% block assets %}
+<!-- leaflet -->
+ <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+ <link rel="stylesheet" href="{% static 'maps/map.css' %}" />
+ <link rel="stylesheet" href="{% static 'maps/main.css' %}" />
+ <!-- leaflet code, extract to file -->
+{% endblock assets %}
 
 {% block content %}
 
@@ -10,9 +17,21 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron center">
         <div class='container'>
-          <div class='mymap'>
-            <h1>Map gonna go here</h1>
+          <div id='mapid'>
           </div>
         </div>
       </div>
 {% endblock content %}
+
+{% block postassets %}
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoiaGFzc2Fuc2hhbWltIiwiYSI6ImNpenA0cTRtYzAwYTAzM3BqaDB6eDlkeWsifQ.iGARF1WD6JtTZ6eK1ZLW-w'
+}).addTo(mymap);
+
+</script>
+{% endblock postassets %}
