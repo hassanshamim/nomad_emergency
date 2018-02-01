@@ -1,0 +1,1 @@
+Really just for the flatpages app.  Most templates live in the app templates directory.
