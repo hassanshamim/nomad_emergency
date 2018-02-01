@@ -2,7 +2,7 @@ PROJECT_NAME = nomad_emergency
 
 
 deploy:
-	git push heroku heroku-prep:master
+	git push heroku master:master
 
 test:
 	py.test
