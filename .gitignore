@@ -88,9 +88,11 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# Visual Studio Code settings
-# don't judge
+# Editor Nonsense
 .vscode/
+tags
+*.swp
+
 
 # local dev database
 db.sqlite3
