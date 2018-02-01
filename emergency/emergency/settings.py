@@ -17,6 +17,8 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+# Added because https://docs.djangoproject.com/en/2.0/ref/contrib/flatpages/
+SITE_ID = 1
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!!!!!!!!move me to .env file!!!'
@@ -37,13 +39,16 @@ DEFAULT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # added, but not a django default
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 ]
 LOCAL_APPS = [
     'maps.apps.MapsConfig',
 ]
 
 THIRD_PARTY_APPS = [
-    'django_countries'
+    'django_countries',
 ]
 
 
@@ -65,7 +70,7 @@ ROOT_URLCONF = 'emergency.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

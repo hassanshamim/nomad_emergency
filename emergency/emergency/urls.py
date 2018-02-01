@@ -13,15 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
+from django.urls import path, re_path
 from django.contrib import admin
 
 from maps import views as map_views
 
 urlpatterns = [
+    # TODO: switch to path() and re_path ()
     url(r'^admin/', admin.site.urls),
     url(r'^map/', map_views.index, name='map'),
     url(r'^$', map_views.index, name='home'),
     url(r'^facility/(?P<facility_id>[0-9]+)', map_views.show_facility, name='facility'),
-    url(r'^facility/new', map_views.new_facility, name='new')
+    url(r'^facility/new', map_views.new_facility, name='new'),
+    path('pages/', include('django.contrib.flatpages.urls')),
 ]
