@@ -1,1 +1,1 @@
-web: gunicorn emergency.wsgi
+web: gunicorn --pythonpath emergency emergency.wsgi
