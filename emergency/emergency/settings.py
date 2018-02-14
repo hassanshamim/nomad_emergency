@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+GOOGLE_MAPS_API_KEY = os.environ['GOOGLE_MAPS_API_KEY']
+
 
 # Application definition
 
@@ -49,6 +51,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_countries',
+    'django_google_maps',
 ]
 
 

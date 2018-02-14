@@ -9,3 +9,6 @@ test:
 
 run:
 	heroku local web
+
+remote-shell:
+	heroku run bash
