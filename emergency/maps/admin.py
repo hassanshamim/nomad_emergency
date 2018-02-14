@@ -11,7 +11,6 @@ from django_google_maps import fields as map_fields
 class FacilityAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'country', 'website']
     list_filter = ['country', 'services']
-    date_hierarchy = 'updated_at'
     # readonly_fields = ('geolocation',)
 
     formfield_overrides = {

@@ -5,9 +5,7 @@ from django_google_maps import fields as map_fields
 
 
 class Facility(models.Model):
-    """
-    Temporary Placeholder for our hospitals etc model.
-    """
+    # TODO: add language field/model
     name = models.CharField(max_length=100)
     services = models.CharField(blank=True, max_length=500)
     website = models.URLField(blank=True)

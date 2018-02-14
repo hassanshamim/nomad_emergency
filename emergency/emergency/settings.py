@@ -54,6 +54,9 @@ THIRD_PARTY_APPS = [
     'django_google_maps',
 ]
 
+# Add EUROPE
+COUNTRIES_ONLY = ['TH', 'VN', 'US', 'MX', 'CO', 'SG', 'MY', 'CR', 'PH', 'PE', 'BR', ]
+
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
