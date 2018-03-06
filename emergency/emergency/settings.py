@@ -29,6 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+# GEODJANGO settings
+# Required for HEROKU
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+
+
 # Application definition
 
 
@@ -42,6 +48,7 @@ DEFAULT_APPS = [
     # added, but not a django default
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django.contrib.gis',
 ]
 LOCAL_APPS = [
     'maps.apps.MapsConfig',
