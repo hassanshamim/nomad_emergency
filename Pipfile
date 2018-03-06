@@ -7,10 +7,11 @@ name = "pypi"
 
 [packages]
 
-Django = "*"
+django = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-countries = "*"
+django-crispy-forms = "*"
 
 
 [dev-packages]

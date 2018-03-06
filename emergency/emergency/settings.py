@@ -29,6 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+# THIRD PARTY CONFIGS:
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_FAIL_SILENTLY = not DEBUG
+
 # Application definition
 
 
@@ -49,6 +53,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_countries',
+    'crispy_forms',
 ]
 
 

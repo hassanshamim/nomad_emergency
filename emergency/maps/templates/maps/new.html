@@ -1,19 +1,20 @@
 {% extends "maps/base.html" %}
+{% load crispy_forms_tags %}
  {% block content %}
 <div class='container'>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-lg-12">
+            <h2 class="text-center">Create Facility</h2>
+
+        <!-- <div class="col-md-8 col-md-offset-2"> -->
+            <!-- <form action="{% url 'new' %}" method="POST" role="form"> -->
+            {% crispy facility_form %}
+        <!-- </div> -->
+        <!-- <div class="col-md-8 col-md-offset-2">
             <form action="{% url 'new' %}" method="POST" role="form">
-                {% csrf_token %}
-                <legend>Submit a Facility</legend>
-                <div class="form-group">
-                    {{ facility_form }}
-                    {% comment %}TODO: add more granular rendering and markup with bootstrap{% endcomment %}
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                {{facility_form}}
+        </div> -->
         </div>
     </div>
-</div>
 </div>
 {% endblock content %}
