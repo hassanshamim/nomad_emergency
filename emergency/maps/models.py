@@ -1,4 +1,5 @@
-from django.db import models
+from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 
 from django_countries.fields import CountryField
 
@@ -15,10 +16,7 @@ class Facility(models.Model):
 
     languages = models.ManyToManyField('Language', related_name='facilities')
 
-    lat = models.DecimalField('Latitude', blank=True,
-                              null=True, max_digits=9, decimal_places=6)
-    long = models.DecimalField('Longitude',
-                               blank=True, null=True, max_digits=9, decimal_places=6)
+    coordinates = models.PointField(geography=True)
     created_at = models.DateTimeField('Created At', auto_now_add=True)
     updated_at = models.DateTimeField('Updated At', auto_now=True)
 

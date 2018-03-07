@@ -96,3 +96,6 @@ tags
 
 # local dev database
 db.sqlite3
+
+# ignore static files
+emergency/staticfiles/
