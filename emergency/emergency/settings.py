@@ -29,6 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+# GEODJANGO settings
+# Required for HEROKU
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+
+
 # Application definition
 
 
@@ -42,6 +48,7 @@ DEFAULT_APPS = [
     # added, but not a django default
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django.contrib.gis',
 ]
 LOCAL_APPS = [
     'maps.apps.MapsConfig',
@@ -90,7 +97,7 @@ WSGI_APPLICATION = 'emergency.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'nomad_emergency',
         'USER': 'postgres',
         'PASSWORD': '',
@@ -136,4 +143,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # THE HEROKU PART
+# TODO: strip out and just use dj_database_url
 django_heroku.settings(locals())
+
+# Fix Database Engine because djanog_heroku is being dumb
+# https://github.com/heroku/django-heroku/issues/6
+if os.getenv('DATABASE_URL'):
+    if DATABASES['default']['ENGINE'] in ('django.db.backends.postgresql', 'django.db.backends.postgresql_psycopg2'):
+        DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+    elif DATABASES['default']['ENGINE'] == 'django.db.backends.sqlite3':
+        DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.spatialite'
