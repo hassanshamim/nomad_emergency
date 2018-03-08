@@ -18,12 +18,16 @@ def show_facility(request, facility_id):
 
 def new_facility(request):
     """new facility page and logic"""
-    if request.POST:
-        loc = Facility()
-        loc.address = request.POST['address']
-        loc.country = request.POST['country']
-        loc.name = request.POST['name']
-        loc.save()
-        return HttpResponseRedirect(reverse('facility', args=(loc.pk,)))
+    if request.method == 'POST':
+        form = FacilityForm(request.POST)
 
-    return render(request, 'maps/new.html', context={'facility_form': FacilityForm()})
+        if form.is_valid():
+            fac = form.save()
+
+            return HttpResponseRedirect(reverse('facility', args=(fac.pk,)))
+
+    else:
+        form = FacilityForm()
+
+
+    return render(request, 'maps/new.html', context={'facility_form': form})
