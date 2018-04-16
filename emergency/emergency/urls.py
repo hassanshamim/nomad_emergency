@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
 from django.urls import path, re_path
 from django.contrib.gis import admin
@@ -28,3 +29,7 @@ urlpatterns = [
     url(r'^facility/new', map_views.new_facility, name='new'),
     path('pages/', include('django.contrib.flatpages.urls')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))

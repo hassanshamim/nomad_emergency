@@ -24,7 +24,7 @@ SITE_ID = 1
 SECRET_KEY = '!!!!!!!!move me to .env file!!!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.getenv('DJANGO_DEBUG'))
 
 ALLOWED_HOSTS = ['*']
 
@@ -70,6 +70,11 @@ THIRD_PARTY_APPS = [
     'mapwidgets',
 ]
 
+DEVELOPMENT_APPS = [
+    'django_extensions',
+    'debug_toolbar',
+]
+
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -83,6 +88,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += DEVELOPMENT_APPS
+    MIDDLEWARE.insert(2, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ['127.0.0.1',]
+
 
 ROOT_URLCONF = 'emergency.urls'
 

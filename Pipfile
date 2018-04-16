@@ -1,23 +1,19 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 django = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-countries = "*"
 django-map-widgets = {git = "git://github.com/erdem/django-map-widgets.git", ref = "v0.2.0"}
 
-
 [dev-packages]
-
-
+django-extensions = "*"
+ipython = "*"
+django-debug-toolbar = "*"
 
 [requires]
-
 python_full_version = "3.6.4"
