@@ -14,22 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include
 from django.urls import path, re_path
 from django.contrib.gis import admin
 
 from maps import views as map_views
 
 urlpatterns = [
-    # TODO: switch to path() and re_path ()
-    url(r'^admin/', admin.site.urls),
-    url(r'^map/', map_views.index, name='map'),
-    url(r'^$', map_views.index, name='home'),
-    url(r'^facility/(?P<facility_id>[0-9]+)', map_views.show_facility, name='facility'),
-    url(r'^facility/new', map_views.new_facility, name='new'),
+    path('admin/', admin.site.urls),
+    path('map/', map_views.index, name='map'),
+    re_path('^$', map_views.index, name='home'),
+    path(r'facility/<int:facility_id>', map_views.show_facility, name='facility'),
+    path(r'facility/new', map_views.new_facility, name='new'),
     path('pages/', include('django.contrib.flatpages.urls')),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns.append(url(r'^__debug__/', include(debug_toolbar.urls)))
+    urlpatterns.append(re_path(r'^__debug__/', include(debug_toolbar.urls)))
