@@ -1,9 +1,12 @@
 {% extends "maps/base.html" %}
- {% block content %}
-<div class='container'>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <form action="{% url 'new' %}" method="POST" role="form">
+  {% block assets %}
+    {{ facility_form.media }}
+  {% endblock assets %}
+  {% block content %}
+  <div class='container'>
+      <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <form action="{% url 'new' %}" method="POST" role="form">
                 {% csrf_token %}
                 <legend>Submit a Facility</legend>
                 <div class="form-group">

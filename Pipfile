@@ -7,10 +7,11 @@ name = "pypi"
 
 [packages]
 
-Django = "*"
+django = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-countries = "*"
+django-map-widgets = {git = "git://github.com/erdem/django-map-widgets.git", ref = "v0.2.0"}
 
 
 [dev-packages]
@@ -19,4 +20,4 @@ django-countries = "*"
 
 [requires]
 
-python_version = "3.6.4"
+python_full_version = "3.6.4"

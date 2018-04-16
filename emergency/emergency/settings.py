@@ -35,6 +35,17 @@ GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
 GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
 
 
+# maps-widgets
+MAP_WIDGETS = {
+    "GooglePointFieldWidget": (
+        ("zoom", 12),
+        ("mapCenterLocationName", "london"),
+        ("markerFitZoom", 12),
+    ),
+    "GOOGLE_MAP_API_KEY": os.getenv('GOOGLE_MAP_API_KEY'),
+}
+
+
 # Application definition
 
 
@@ -56,6 +67,7 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_countries',
+    'mapwidgets',
 ]
 
 
